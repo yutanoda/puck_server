@@ -2,3 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+#btn-login {
+  color: black;
+  background-color: rgb(182, 215, 168);
+  border-color: #333333;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#form-mail {
+  border-color: #333333;
+  border-radius: 0 0 0 0;
+}
+
+#form-password {
+  border-color: #333333;
+  border-radius: 0 0 0 0;
+}
+
