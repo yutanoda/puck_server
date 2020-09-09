@@ -1,4 +1,4 @@
-class UserSessionsController < ApplicationController
+class Admin::UserSessionsController < Admin::ApplicationController
   skip_before_action :logged_in_user?
   
   def index
@@ -16,7 +16,7 @@ class UserSessionsController < ApplicationController
       remember user
       redirect_to users_path, flash: {success: 'Successfully logged in'}
     else
-      flash.now[:danger] = 'Invalid account_id/password combination'
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'index'
     end
   end

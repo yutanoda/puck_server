@@ -8,28 +8,20 @@ RSpec.describe User, type: :model do
   end
 
   describe 'バリデーション' do
-    it "is invalid without email" do
-      user = FactoryBot.build(:user, email: " ")
+    it "is invalid without account_id" do
+      user = FactoryBot.build(:user, account_id: " ")
       expect(user).to be_invalid
     end
 
-    it "is invalid with too long email" do
-      user = FactoryBot.build(:user, email: "a" *244 + "@example.com")
+    it "is invalid with too long account_id" do
+      user = FactoryBot.build(:user, account_id: "a" *244 + "@example.com")
       expect(user).to be_invalid
     end
 
-    it "is invalid with invalid addresses" do
-      invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
-                      foo@bar_baz.com foo@bar+baz.com]
-      invalid_addresses.each do |invalid_address|
-        user = FactoryBot.build(:user, email: invalid_address)
-        expect(user).to be_invalid
-      end
-    end
 
-    it "is invalid with duplicated emails" do
-      user1 = FactoryBot.create(:user, email: "noda@gmail.com")
-      user2 = FactoryBot.build(:user, email: "noda@gmail.com")
+    it "is invalid with duplicated account_ids" do
+      user1 = FactoryBot.create(:user, account_id: "noda")
+      user2 = FactoryBot.build(:user, account_id: "noda")
       expect(user2).to be_invalid
     end
 
