@@ -4,6 +4,7 @@ class User < ApplicationRecord
 	validates :account_id, presence: true, length: { maximum:255 }, uniqueness: true
 
 	has_secure_password
+	has_secure_token
 
 	# 渡された文字列のハッシュ値を返す
   def User.digest(string)
