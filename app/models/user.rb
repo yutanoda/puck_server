@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
 	has_secure_password
 	has_secure_token
+	has_many :user_contract_relations, dependent: :destroy
+  has_many :contracts, through: :user_contract_relations
 
 	# 渡された文字列のハッシュ値を返す
   def User.digest(string)

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_104619) do
+ActiveRecord::Schema.define(version: 2020_09_23_095309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "con_ins_relations", force: :cascade do |t|
+    t.integer "contract_id"
+    t.integer "instrument_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contract_id", "instrument_id"], name: "index_con_ins_relations_on_contract_id_and_instrument_id", unique: true
+    t.index ["contract_id"], name: "index_con_ins_relations_on_contract_id"
+    t.index ["instrument_id"], name: "index_con_ins_relations_on_instrument_id"
+  end
 
   create_table "contracts", force: :cascade do |t|
     t.string "name"
@@ -22,6 +32,38 @@ ActiveRecord::Schema.define(version: 2020_09_18_104619) do
     t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ins_preset_relations", force: :cascade do |t|
+    t.integer "instrument_id"
+    t.integer "preset_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["instrument_id", "preset_id"], name: "index_ins_preset_relations_on_instrument_id_and_preset_id", unique: true
+    t.index ["instrument_id"], name: "index_ins_preset_relations_on_instrument_id"
+    t.index ["preset_id"], name: "index_ins_preset_relations_on_preset_id"
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "presets", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_contract_relations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "contract_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contract_id"], name: "index_user_contract_relations_on_contract_id"
+    t.index ["user_id", "contract_id"], name: "index_user_contract_relations_on_user_id_and_contract_id", unique: true
+    t.index ["user_id"], name: "index_user_contract_relations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -9,6 +9,7 @@ class UserSessionsController < ApplicationController
 
   end
 
+  //ログイン処理
   def create
     user = User.find_by(account_id: params[:account_id])
     if user && user.authenticate(params[:password])
