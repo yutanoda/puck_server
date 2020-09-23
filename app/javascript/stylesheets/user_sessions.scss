@@ -1,22 +1,24 @@
+
+body {
+  background-color: #f5f5f5;
+}
+.container {
+  padding: 100px 0 80px 0;
+  text-align: center;
+}
 .title {
-  margin-top: 250px;
+  font-size: 1.5em;
 }
 #form-id {
   border-color: #333333;
   border-radius: 0 0 0 0;
-  height: 110px;
-  font-size: 3em;
-  margin-top: 120px;
-
+  margin-top: 70px;
 }
 
 #form-password {
   border-color: #333333;
   border-radius: 0 0 0 0;
-  height: 110px;
-  font-size: 3em;
-  margin-top: 120px;
-
+  margin-top: 60px;
 }
 
 #btn-login {
@@ -24,13 +26,39 @@
   background-color: rgb(182, 215, 168);
   border-color: #333333;
   border-radius: 5px 5px 5px 5px;
-  margin-top: 170px;
-  font-size: 4em;
-  padding: 5px 30px 5px 30px;
+  margin-top: 100px;
+  font-size: 20px;
 }
 
-
 @media screen and (max-width:1024px){
-  
-  
+  .title {
+    margin-top: 250px;
+    font-size: 3em;
+  }
+  #form-id {
+    border-color: #333333;
+    border-radius: 0 0 0 0;
+    height: 110px;
+    font-size: 3em;
+    margin-top: 120px;
+
+  }
+
+  #form-password {
+    border-color: #333333;
+    border-radius: 0 0 0 0;
+    height: 110px;
+    font-size: 3em;
+    margin-top: 120px;
+  }
+
+  #btn-login {
+    color: black;
+    background-color: rgb(182, 215, 168);
+    border-color: #333333;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 170px;
+    font-size: 4em;
+    padding: 5px 30px 5px 30px;
+  }
 }
