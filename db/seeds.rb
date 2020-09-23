@@ -15,5 +15,5 @@ Seed::SeedUserContractRelation.seed
 Seed::SeedInstrument.seed
 Seed::SeedConInsRelation.seed
 Seed::SeedPreset.seed
+Seed::SeedInsPresetRelation.seed
 
-Seed::Seed
