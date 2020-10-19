@@ -1,13 +1,12 @@
-class AuthenticationsController < UserSessionsController
+class AuthenticationsController < ApplicationController
   skip_before_action :logged_in_user?
+  skip_before_action :verify_authenticity_token
   def login
-    current_user = User.find_by(email: users_params[:account_id], password: users_params[:password])
-    return render json: {status: 401, message: '認証に失敗しました'} unless current_user
-    render plain: current_user.token
-
-  rescue StandardError => e
-    Rails.logger.error(e.message)
-    render json: Init.message(500, e.message), status: 500
+    user = User.find_by(account_id: params[:account_id])
+    if user && user.authenticate(params[:password])
+      render plain: user.token
+    else 
+      return render json: {status: 401, message: '認証に失敗しました'} 
+    end
   end
-
 end
