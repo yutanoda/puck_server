@@ -9,18 +9,16 @@
   </head>
 
 	<body>
-    <div class="container">
-      <header>
-        <%= render 'layouts/header' %>
-      </header>
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-      <main>
-        <%= yield %>
-      </main>
-      <footer>
-      </footer>
-		</div>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+    </footer>
   </body>
 </html>

@@ -1,12 +1,9 @@
 class User < ApplicationRecord
 	attr_accessor :remember_token
-
-	validates :account_id, presence: true, length: { maximum:255 }, uniqueness: true
-
+	validates :login_id, presence: true, length: { maximum:255 }, uniqueness: true
 	has_secure_password
 	has_secure_token
-	has_many :user_contract_relations, dependent: :destroy
-  has_many :contracts, through: :user_contract_relations
+  has_many :contracts, dependent: :destroy
 
 	# 渡された文字列のハッシュ値を返す
   def User.digest(string)

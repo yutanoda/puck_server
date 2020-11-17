@@ -1,0 +1,8 @@
+ <% if @text %>
+  <div class="title">
+    <h1><%= @text %></h1>
+    <%= link_to "/user_sessions/#{current_user.id}", method: :delete do %>
+    <div class="logout-button">ログアウト</div>
+    <% end %>
+  </div>
+ <% end %>

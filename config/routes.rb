@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :user_sessions, only: [:index, :create, :destroy]
   resources :users
 
-  post '/login', to: 'authentications#login'          
-
+  post '/login', to: 'authentications#login'    
+        
   namespace :admin do
     resources :user_sessions, only: [:index, :create, :destroy]
     resources :users

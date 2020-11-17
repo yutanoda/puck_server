@@ -1,5 +1,28 @@
-<%= @users.each do |user| %>
-  <%= user.account_id %>
-<% end %>
 
-<%= current_user.account_id %>
+<div class="container mt-5">
+  <div class="row menu">
+    <%= link_to "新規登録", new_user_path, class: "btn btn-danger offset-10 col-2" %>
+  </div>
+  <div class="row">
+    <table class="table mt-5">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>nickname</th>
+          <th>login_id</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <% @users.each_with_index do |user, i| %>
+      <tbody>
+        <tr>
+          <td><%= i + 1 %></td>
+          <td><%= user.nickname %></th>
+          <td><%= user.login_id %></td>
+          <td><%= user.email %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
