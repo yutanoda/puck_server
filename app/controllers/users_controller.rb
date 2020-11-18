@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @text = "ユーザ編集"
+    @user = User.find(params[:id])
   end
 
   def create
@@ -22,6 +24,21 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to users_path, flash: {success: '更新しました'}
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.delete
+      redirect_to users_path, flash: {success: '削除しました'}
+    else
+      render :edit
+    end
   end
 
   private 

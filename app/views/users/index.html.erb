@@ -17,7 +17,7 @@
       <tbody>
         <tr>
           <td><%= i + 1 %></td>
-          <td><%= user.nickname %></th>
+          <td><%= link_to "#{user.nickname}", "/users/#{user.id}/edit" %></td>
           <td><%= user.login_id %></td>
           <td><%= user.email %></td>
         </tr>

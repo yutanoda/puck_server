@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-sm-3 col-sm-9 offset-sm-2">
+    <%= form_with model: @user do |f| %>
+      <div class="form-group row mt-5">
+        <%= f.label :nickname, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-5">
+          <%= f.text_field :nickname, class: "form-control" %>
+        </div>
+        <div class="offset-sm-5"></div>
+      </div>
+
+      <div class="form-group row mt-5">
+        <%= f.label :login_id, "Login_id", class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-5">
+          <%= f.text_field :login_id, class: "form-control" %>
+        </div>
+        <div class="offset-sm-5"></div>
+      </div>
+
+      <div class="form-group row mt-5">
+        <%= f.label :email, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-5">
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+        <div class="offset-sm-5"></div>
+      </div>
+
+      <div class="form-group row mt-5">
+        <%= f.label :password, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-5">
+          <%= f.text_field :password, class: "form-control" %>
+        </div>
+        <div class="offset-sm-5"></div>
+      </div>
+      <div class="form-group row mt-5">
+        <div class="offset-sm-4"></div>
+        <div class="col-sm-8 btn-container">
+          <div class="col-sm-3"></div>
+          <%= link_to "戻る", users_path, class: "btn btn-success col-sm-3 mr-3"  %>
+          <%= link_to "削除", "/users/#{@user.id}", method: :delete, class: "btn btn-danger col-sm-3 mr-3"  %>
+          <%= f.submit "保存", class: "btn btn-primary col-sm-3" %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+

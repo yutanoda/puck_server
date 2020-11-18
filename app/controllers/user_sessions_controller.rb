@@ -11,9 +11,9 @@ class UserSessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       log_in user
       remember user
-      redirect_to users_path, flash: {success: 'Successfully logged in'}
+      redirect_to users_path, flash: {success: 'ログインしました'}
     else
-      flash.now[:danger] = 'Invalid login_id/password combination'
+      flash.now[:danger] = 'ログインidかパスワードが間違っています'
       render 'index'
     end
   end
